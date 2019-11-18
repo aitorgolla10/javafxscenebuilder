@@ -20,10 +20,18 @@ public class DBKudeatzaile {
 		InputStream in = null;
 
 		try {
-			in = this.getClass().getResourceAsStream("/setup.properties");
-			properties = new Properties();
-			properties.load(in);
-		} catch (IOException e) {
+			String path=this.getClass().getResource("/eurobisioa.db").getPath();
+			// System.out.println("Path:"+ path);
+			String url = "jdbc:sqlite:"+ path;
+			Class.forName("org.sqlite.JDBC").newInstance();
+
+			conn = (Connection) DriverManager.getConnection(url);
+			System.out.println("Database connection established");
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} finally {
 			in.close();
