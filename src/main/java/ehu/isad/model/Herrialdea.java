@@ -5,10 +5,10 @@ import javafx.scene.image.Image;
 public class Herrialdea {
 
     private String izena;
-    private Image bandera;
+    private String bandera;
     private String tv;
 
-    public Herrialdea(String izena, Image bandera, String tv) {
+    public Herrialdea(String izena, String bandera, String tv) {
         this.izena = izena;
         this.bandera = bandera;
         this.tv = tv;
@@ -19,7 +19,7 @@ public class Herrialdea {
         return izena;
     }
 
-    public Image getBandera() {
+    public String getBandera() {
         return bandera;
     }
 

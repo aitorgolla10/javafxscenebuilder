@@ -1,7 +1,6 @@
 package ehu.isad;
 
-import ehu.isad.controller.KautotuKud;
-import ehu.isad.controller.MainKud;
+import ehu.isad.controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,13 +13,17 @@ import java.util.ResourceBundle;
 
 public class Main extends Application {
 
-  private Parent kautotuUI;
+  private Parent ui1;
+  private Parent ui2;
+  private Parent ui3;
   private Parent mainUI;
 
   private Stage stage;
 
-  private KautotuKud kautotuKud;
-  private MainKud mainKud;
+  private Ui1kud ui1kud;
+  private Ui2kud ui2kud;
+  private ErroreKud erroreKud;
+
 
 
   @Override
@@ -28,9 +31,8 @@ public class Main extends Application {
 
     stage = primaryStage;
     pantailakKargatu();
-
-    stage.setTitle("Argazki Backup");
-    stage.setScene(new Scene(kautotuUI, 450, 275));
+    stage.setTitle("EUROBISIOA");
+    stage.setScene(new Scene(ui1, 600, 400));
     stage.show();
   }
 
@@ -40,15 +42,31 @@ public class Main extends Application {
     ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
 
 
-    FXMLLoader loaderKautotu = new FXMLLoader(getClass().getResource("/view/kautotu.fxml"), bundle);
-    kautotuUI = (Parent) loaderKautotu.load();
-    kautotuKud = loaderKautotu.getController();
-    kautotuKud.setMainApp(this);
+    FXMLLoader ui1Loader = new FXMLLoader(getClass().getResource("/ui/ui1.fxml"), bundle);
+    ui1 = (Parent) ui1Loader.load();
+    ui1kud = ui1Loader.getController();
+    ui1kud.setMainApp(this);
 
-    FXMLLoader loaderMain = new FXMLLoader(getClass().getResource("/view/main.fxml"), bundle);
-    mainUI = (Parent) loaderMain.load();
-    mainKud = loaderMain.getController();
-    mainKud.setMainApp(this);
+    FXMLLoader ui2Loader = new FXMLLoader(getClass().getResource("/ui/ui2.fxml"), bundle);
+    ui2 = (Parent) ui2Loader.load();
+    ui2kud = ui2Loader.getController();
+    ui2kud.setMainApp(this);
+
+    FXMLLoader ui3Loader = new FXMLLoader(getClass().getResource("/ui/ui3.fxml"), bundle);
+    ui3 = (Parent) ui3Loader.load();
+    erroreKud = ui3Loader.getController();
+    erroreKud.setMainApp(this);
+
+  }
+
+  public void ui2erakutsi(){
+    stage.setScene(new Scene(ui2, 600, 400));
+    stage.show();
+  }
+
+  public void ui3erakutsi(){
+    stage.setScene(new Scene(ui3, 600, 400));
+    stage.show();
   }
 
 
