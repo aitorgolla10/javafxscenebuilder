@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="429.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.TaulaKud">
+   <children>
+      <TableView fx:id="tbData" layoutX="1.0" layoutY="80.0" prefHeight="298.0" prefWidth="704.0">
+        <columns>
+          <TableColumn fx:id="bandera" prefWidth="91.0" />
+          <TableColumn fx:id="herrialdea" prefWidth="122.0" text="Herrialdea" />
+            <TableColumn fx:id="artista" prefWidth="192.0" text="Artista" />
+            <TableColumn fx:id="abestia" prefWidth="186.0" text="Abestia" />
+            <TableColumn fx:id="puntuak" prefWidth="104.0" text="Puntuak" />
+        </columns>
+          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </TableView>
+      <Button layoutX="301.0" layoutY="389.0" mnemonicParsing="false" onAction="#onClick" text="Bozkaketa gorde" />
+      <Label fx:id="nor" layoutX="166.0" layoutY="34.0" text="Nor" />
+      <ImageView fx:id="irudia" fitHeight="62.0" fitWidth="111.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="argazkia" fitHeight="62.0" fitWidth="155.0" layoutX="543.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

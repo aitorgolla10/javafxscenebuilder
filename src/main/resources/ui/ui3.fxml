@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ErroreKud">
    <children>
-      <Label fx:id="herrialdea" layoutX="55.0" layoutY="128.0" text="nork">
+      <Label fx:id="herrialdea" layoutX="57.0" layoutY="92.0" text="nork">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <ImageView fx:id="bandera" fitHeight="98.0" fitWidth="126.0" layoutX="237.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="269.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClick" text="OK" />
+      <ImageView fx:id="bandera" fitHeight="104.0" fitWidth="139.0" layoutX="231.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="282.0" layoutY="317.0" mnemonicParsing="false" onAction="#onClick" text="OK" />
+      <ImageView fx:id="argazkia" fitHeight="79.0" fitWidth="123.0" layoutX="470.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

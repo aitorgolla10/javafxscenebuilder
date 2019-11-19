@@ -16,14 +16,14 @@ public class Main extends Application {
   private Parent ui1;
   private Parent ui2;
   private Parent ui3;
-  private Parent mainUI;
+  private Parent ui4;
 
   private Stage stage;
 
   private Ui1kud ui1kud;
   private Ui2kud ui2kud;
   private ErroreKud erroreKud;
-
+  private TaulaKud taulaKud;
 
 
   @Override
@@ -52,10 +52,6 @@ public class Main extends Application {
     ui2kud = ui2Loader.getController();
     ui2kud.setMainApp(this);
 
-    FXMLLoader ui3Loader = new FXMLLoader(getClass().getResource("/ui/ui3.fxml"), bundle);
-    ui3 = (Parent) ui3Loader.load();
-    erroreKud = ui3Loader.getController();
-    erroreKud.setMainApp(this);
 
   }
 
@@ -64,8 +60,27 @@ public class Main extends Application {
     stage.show();
   }
 
-  public void ui3erakutsi(){
-    stage.setScene(new Scene(ui3, 600, 400));
+  public void ui3erakutsi() throws IOException {
+
+      Locale locale = new Locale("eu","ES");
+      ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+    FXMLLoader ui3Loader = new FXMLLoader(getClass().getResource("/ui/ui3.fxml"), bundle);
+    ui3 = (Parent) ui3Loader.load();
+    erroreKud = ui3Loader.getController();
+    erroreKud.setMainApp(this);
+    stage.setScene(new Scene(ui3, 650, 400));
+    stage.show();
+  }
+
+  public void ui4erakutsi() throws IOException {
+
+    Locale locale = new Locale("eu","ES");
+    ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+    FXMLLoader ui4Loader = new FXMLLoader(getClass().getResource("/ui/ui4.fxml"), bundle);
+    ui4 = (Parent) ui4Loader.load();
+    taulaKud = ui4Loader.getController();
+    taulaKud.setMainApp(this);
+    stage.setScene(new Scene(ui4, 750, 500));
     stage.show();
   }
 
@@ -74,8 +89,4 @@ public class Main extends Application {
     launch(args);
   }
 
-  public void mainErakutsi() {
-    stage.setScene(new Scene(mainUI));
-    stage.show();
-  }
 }

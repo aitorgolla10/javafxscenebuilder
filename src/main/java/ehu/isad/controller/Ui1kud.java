@@ -5,6 +5,8 @@ import ehu.isad.model.Herrialdea;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -19,6 +21,9 @@ public class Ui1kud implements Initializable {
     @FXML
     private ComboBox<Herrialdea> herrialdeak;
 
+    @FXML
+    private ImageView argazkia;
+
 
     public void setMainApp(Main main) {
         this.mainApp = main;
@@ -29,6 +34,9 @@ public class Ui1kud implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Image image = new Image(getClass().getResourceAsStream("/banderak/eurobisioa.png"));
+        argazkia.setImage(image);
 
 
 

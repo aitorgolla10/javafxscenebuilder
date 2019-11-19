@@ -7,7 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -16,6 +19,9 @@ public class Ui2kud implements Initializable {
 
     @FXML
     private ComboBox comboboxa;
+
+    @FXML
+    private ImageView argazkia;
 
     // singleton
     private static Ui2kud instantzia = new Ui2kud();
@@ -33,25 +39,24 @@ public class Ui2kud implements Initializable {
         this.mainApp = main;
     }
 
-    public void onClick(ActionEvent actionEvent) throws SQLException {
+    public void onClick(ActionEvent actionEvent) throws SQLException, IOException {
 
         String aukeratutakoHerrialdea = (String) comboboxa.getValue();
-        System.out.println(aukeratutakoHerrialdea);
+        Erabiltzailea.getInstantzia().setIzena(aukeratutakoHerrialdea);
         Boolean bozkatuDu = herrialdeKud.getInstantzia().bozkatuDu(aukeratutakoHerrialdea);
         if (bozkatuDu.equals(true)){
-
-        }
-        else{
             mainApp.ui3erakutsi();
         }
-    }
-
-    public String emanIzena(){
-        return this.izena;
+        else{
+            mainApp.ui4erakutsi();
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Image image = new Image(getClass().getResourceAsStream("/banderak/eurobisioa.png"));
+        argazkia.setImage(image);
 
         try {
             comboboxa.setItems((ObservableList) herrialdeKud.getInstantzia().lortuHerrialdeak());

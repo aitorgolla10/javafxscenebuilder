@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -24,13 +25,14 @@ public class ErroreKud implements Initializable {
 
     // Reference to the main application.
     private Main mainApp;
-    private Ui2kud ui2kud = Ui2kud.getInstantzia();
     private String izena;
 
     @FXML
     private Label herrialdea;
     @FXML
     private ImageView bandera;
+    @FXML
+    private ImageView argazkia;
 
 
 
@@ -40,13 +42,20 @@ public class ErroreKud implements Initializable {
 
     @FXML
     public void onClick(){
-
+        System.exit(0);
     }
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String izena = Erabiltzailea.getInstantzia().getIzena();
+        herrialdea.setText(izena + "k jada banatu ditu bere puntuak.");
+        String izenaLow = izena.toLowerCase();
+        Image image = new Image(getClass().getResourceAsStream("/banderak/"+izenaLow+".png"));
+        bandera.setImage(image);
 
+        Image ikonoa = new Image(getClass().getResourceAsStream("/banderak/eurobisioa.png"));
+        argazkia.setImage(ikonoa);
     }
 }
