@@ -1,7 +1,7 @@
 package ehu.isad.controller;
 
 import ehu.isad.Main;
-import javafx.collections.FXCollections;
+import ehu.isad.model.Erabiltzailea;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +29,7 @@ public class Ui2kud implements Initializable {
     public static Ui2kud getInstantzia(){
         return instantzia;
     };
+
     // Reference to the main application.
     private Main mainApp;
     private HerrialdeKud herrialdeKud;

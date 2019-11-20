@@ -1,4 +1,4 @@
-package ehu.isad.controller;
+package ehu.isad.model;
 
 import javafx.scene.image.Image;
 

@@ -1,7 +1,7 @@
 package ehu.isad.controller;
 
 import ehu.isad.Main;
-import ehu.isad.model.Herrialdea;
+import ehu.isad.model.Erabiltzailea;
 import ehu.isad.model.Ordezkaritza;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +18,6 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TaulaKud implements Initializable {
@@ -66,7 +65,6 @@ public class TaulaKud implements Initializable {
 
             String herrialdea = rs.getString("herrialdea");
             String path = herrialdea.toLowerCase()+".png";
-            System.out.println(path);
             String artista = rs.getString("artista");
             String abestia = rs.getString("abestia");
             String izena = Erabiltzailea.getInstantzia().getIzena();
@@ -82,7 +80,10 @@ public class TaulaKud implements Initializable {
     }
     @FXML
     public void onClick(){
-        System.out.println("GORDE!!");
+        BotoakEmanKud botoKud = BotoakEmanKud.getInstantzia();
+        Erabiltzailea erab = Erabiltzailea.getInstantzia();
+        botoKud.botoakEguneratu(ordezkaritzak, erab.getIzena());
+
     }
 
     @Override
@@ -131,18 +132,28 @@ public class TaulaKud implements Initializable {
             return cell ;
         });
 
+        puntuak.setOnEditCommit((TableColumn.CellEditEvent<Ordezkaritza, String> event) -> {
+
+            TablePosition<Ordezkaritza, String> pos = event.getTablePosition();
+            String puntuaketa = event.getNewValue();
+            int row = pos.getRow();
+            Ordezkaritza ordezkaritza = event.getTableView().getItems().get(row);
+            ordezkaritza.setPuntuak(puntuaketa);
+
+        });
+
         bandera.setCellValueFactory(new PropertyValueFactory<Ordezkaritza, Image>("bandera"));
 
         bandera.setCellFactory(p -> new TableCell<>() {
             public void updateItem(Image image, boolean empty) {
                 if (image != null && !empty){
                     final ImageView imageview = new ImageView();
-                    imageview.setFitHeight(50);
-                    imageview.setFitWidth(50);
+                    imageview.setFitHeight(20);
+                    imageview.setFitWidth(20);
                     imageview.setImage(image);
                     setGraphic(imageview);
                     setAlignment(Pos.CENTER);
-                    tbData.refresh();
+                    //tbData.refresh();
                 }else{
                     setGraphic(null);
                     setText(null);

@@ -9,13 +9,13 @@
 
 <AnchorPane prefHeight="429.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.TaulaKud">
    <children>
-      <TableView fx:id="tbData" layoutX="1.0" layoutY="80.0" prefHeight="298.0" prefWidth="704.0">
+      <TableView fx:id="tbData" layoutX="1.0" layoutY="74.0" prefHeight="304.0" prefWidth="686.0">
         <columns>
           <TableColumn fx:id="bandera" prefWidth="91.0" />
           <TableColumn fx:id="herrialdea" prefWidth="122.0" text="Herrialdea" />
             <TableColumn fx:id="artista" prefWidth="192.0" text="Artista" />
             <TableColumn fx:id="abestia" prefWidth="186.0" text="Abestia" />
-            <TableColumn fx:id="puntuak" prefWidth="104.0" text="Puntuak" />
+            <TableColumn fx:id="puntuak" prefWidth="96.0" text="Puntuak" />
         </columns>
           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
       </TableView>
