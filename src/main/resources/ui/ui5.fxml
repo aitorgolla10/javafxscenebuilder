@@ -20,12 +20,13 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TableView fx:id="tbData" layoutX="217.0" layoutY="172.0" prefHeight="157.0" prefWidth="149.0">
+      <TableView fx:id="tbData2" layoutX="187.0" layoutY="172.0" prefHeight="173.0" prefWidth="226.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="bandera" prefWidth="75.0" text="Bandera" />
+          <TableColumn fx:id="herrialdea" prefWidth="75.0" text="Herrialdea" />
+            <TableColumn id="puntuak" fx:id="Puntuak" prefWidth="75.0" text="Puntuak" />
         </columns>
       </TableView>
-      <Button layoutX="278.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClick" text="OK" />
+      <Button layoutX="283.0" layoutY="354.0" mnemonicParsing="false" onAction="#onClick" text="OK" />
    </children>
 </AnchorPane>
