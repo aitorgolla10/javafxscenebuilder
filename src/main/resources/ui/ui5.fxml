@@ -4,29 +4,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Ui5">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.RankingKud">
    <children>
-      <Label layoutX="238.0" layoutY="61.0" text="Eurovision">
+      <Label layoutX="260.0" layoutY="100.0" text="TOP 3:">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="265.0" layoutY="133.0" text="TOP 3:">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tbData2" layoutX="187.0" layoutY="172.0" prefHeight="173.0" prefWidth="226.0">
+      <TableView fx:id="tbData2" layoutX="159.0" layoutY="148.0" prefHeight="157.0" prefWidth="290.0">
         <columns>
-          <TableColumn fx:id="bandera" prefWidth="75.0" text="Bandera" />
-          <TableColumn fx:id="herrialdea" prefWidth="75.0" text="Herrialdea" />
-            <TableColumn id="puntuak" fx:id="Puntuak" prefWidth="75.0" text="Puntuak" />
+          <TableColumn fx:id="bandera" prefWidth="75.0" />
+          <TableColumn fx:id="herrialdea" prefWidth="114.0" text="Herrialdea" />
+            <TableColumn id="puntuak" fx:id="puntuak" prefWidth="100.0" text="Puntuak" />
         </columns>
       </TableView>
       <Button layoutX="283.0" layoutY="354.0" mnemonicParsing="false" onAction="#onClick" text="OK" />
+      <ImageView fx:id="argazkia" fitHeight="100.0" fitWidth="170.0" layoutX="215.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

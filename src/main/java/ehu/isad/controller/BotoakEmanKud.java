@@ -36,9 +36,10 @@ public class BotoakEmanKud {
                 String bozkatua = o.getHerrialdea();
                 if (puntuak>0) {
                     DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-                    String query = "INSERT INTO Bozkaketa (bozkatuaIzanDa, bozkatuDu, urtea, puntuak) VALUES ('"+bozkatua+"','"+bozkatzailea+"','2019','"+puntuak+"')";
+                    //String query = "INSERT INTO Bozkaketa (bozkatuaIzanDa, bozkatuDu, urtea, puntuak) VALUES ('"+bozkatua+"','"+bozkatzailea+"','strftime('%Y','now')','"+puntuak+"')";
+                    String query = "INSERT INTO Bozkaketa VALUES ('"+bozkatua+"', '"+bozkatzailea+"',strftime('%Y','now'), '"+puntuak+"')";
                     dbkud.execSQL(query);
-                    String query2 = "UPDATE Ordezkaritza SET puntuak=puntuak+'" + puntuak + "' where herrialdea='" + bozkatua + "' and urtea='2019' ";
+                    String query2 = "UPDATE Ordezkaritza SET puntuak=puntuak+'" + puntuak + "' where herrialdea='" + bozkatua + "' and urtea=strftime('%Y','now') ";
                     dbkud.execSQL(query2);
                 }
             }

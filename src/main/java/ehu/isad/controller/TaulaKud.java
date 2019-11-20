@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -79,10 +80,11 @@ public class TaulaKud implements Initializable {
         }
     }
     @FXML
-    public void onClick(){
+    public void onClick() throws IOException {
         BotoakEmanKud botoKud = BotoakEmanKud.getInstantzia();
         Erabiltzailea erab = Erabiltzailea.getInstantzia();
         botoKud.botoakEguneratu(ordezkaritzak, erab.getIzena());
+        mainApp.ui5erakutsi();
 
     }
 

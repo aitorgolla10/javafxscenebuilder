@@ -17,6 +17,7 @@ public class Main extends Application {
   private Parent ui2;
   private Parent ui3;
   private Parent ui4;
+  private Parent ui5;
 
   private Stage stage;
 
@@ -24,6 +25,7 @@ public class Main extends Application {
   private Ui2kud ui2kud;
   private ErroreKud erroreKud;
   private TaulaKud taulaKud;
+  private RankingKud rankingKud;
 
 
   @Override
@@ -81,6 +83,18 @@ public class Main extends Application {
     taulaKud = ui4Loader.getController();
     taulaKud.setMainApp(this);
     stage.setScene(new Scene(ui4, 750, 500));
+    stage.show();
+  }
+
+  public void ui5erakutsi() throws IOException {
+
+    Locale locale = new Locale("eu","ES");
+    ResourceBundle bundle = ResourceBundle.getBundle("UIResources", locale);
+    FXMLLoader ui5Loader = new FXMLLoader(getClass().getResource("/ui/ui5.fxml"), bundle);
+    ui5 = (Parent) ui5Loader.load();
+    rankingKud = ui5Loader.getController();
+    rankingKud.setMainApp(this);
+    stage.setScene(new Scene(ui5, 600, 400));
     stage.show();
   }
 
