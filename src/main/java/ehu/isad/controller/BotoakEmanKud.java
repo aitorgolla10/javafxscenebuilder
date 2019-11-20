@@ -27,22 +27,29 @@ public class BotoakEmanKud {
     }
 
     public void botoakEguneratu(ObservableList<Ordezkaritza> ordezkaritzak, String bozkatzailea){
-
-        for (int i=0; i<ordezkaritzak.size(); i++){
+        int i = 0;
+        Integer puntuTotalak = 0;
+        while (i<ordezkaritzak.size() && puntuTotalak<=5){
             Ordezkaritza o = ordezkaritzak.get(i);
             if (!o.getPuntuak().equals("---")){
                 Integer puntuak = Integer.parseInt(o.getPuntuak());
-                System.out.println(puntuak);
-                String bozkatua = o.getHerrialdea();
-                if (puntuak>0) {
-                    DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-                    //String query = "INSERT INTO Bozkaketa (bozkatuaIzanDa, bozkatuDu, urtea, puntuak) VALUES ('"+bozkatua+"','"+bozkatzailea+"','strftime('%Y','now')','"+puntuak+"')";
-                    String query = "INSERT INTO Bozkaketa VALUES ('"+bozkatua+"', '"+bozkatzailea+"',strftime('%Y','now'), '"+puntuak+"')";
-                    dbkud.execSQL(query);
-                    String query2 = "UPDATE Ordezkaritza SET puntuak=puntuak+'" + puntuak + "' where herrialdea='" + bozkatua + "' and urtea=strftime('%Y','now') ";
-                    dbkud.execSQL(query2);
+                puntuTotalak = puntuTotalak +puntuak;
+                if (puntuTotalak<=5){
+                    String bozkatua = o.getHerrialdea();
+                    if (puntuak>0) {
+                        DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
+                        //String query = "INSERT INTO Bozkaketa (bozkatuaIzanDa, bozkatuDu, urtea, puntuak) VALUES ('"+bozkatua+"','"+bozkatzailea+"','strftime('%Y','now')','"+puntuak+"')";
+                        String query = "INSERT INTO Bozkaketa VALUES ('"+bozkatua+"', '"+bozkatzailea+"',strftime('%Y','now'), '"+puntuak+"')";
+                        dbkud.execSQL(query);
+                        String query2 = "UPDATE Ordezkaritza SET puntuak=puntuak+'" + puntuak + "' where herrialdea='" + bozkatua + "' and urtea=strftime('%Y','now') ";
+                        dbkud.execSQL(query2);
+                    }
+                }
+                else{
+                    System.out.println("Tranpati!!");
                 }
             }
+            i = i+1;
         }
     }
 

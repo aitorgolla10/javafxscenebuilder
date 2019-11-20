@@ -19,9 +19,6 @@ public class Ui1kud implements Initializable {
     private Main mainApp;
 
     @FXML
-    private ComboBox<Herrialdea> herrialdeak;
-
-    @FXML
     private ImageView argazkia;
 
 

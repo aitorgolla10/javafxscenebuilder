@@ -54,9 +54,8 @@ public class RankingKud implements Initializable {
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
         String query = "SELECT o.herrialdea, o.puntuak, h.bandera FROM Ordezkaritza o, Herrialde h WHERE o.herrialdea=h.izena AND urtea=strftime('%Y','now') ORDER BY puntuak DESC LIMIT 3";
         ResultSet rs = dbkud.execSQL(query);
-        System.out.println("aaa");
+
         while (rs.next()) {
-            System.out.println("bbb");
             String izena = rs.getString("herrialdea");
             String path = izena.toLowerCase()+".png";
             String puntuak = rs.getString("puntuak");
